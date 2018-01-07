@@ -8,44 +8,39 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import stages.DoctorStage;
-import stages.StageFactory;
 import util.HibernateUtil;
 
 /**
- * Eng:
- * Contains the start point of the program.
- * Extends the class of JavaFX {@link Application}.
- *
  * Рус:
+ * <p>
  * Содержит точку входа в программу.
  * Наследует класс JavaFX {@link Application}.
+ * <p>
+ * Eng:
+ * <p>
+ * Contains the start point of the program.
+ * Extends the class of JavaFX {@link Application}.
  */
 
 public class Main extends Application {
-    /**
-     * Eng:
-     * The object is storing the view of GUI.
-     *
-     * Рус:
-     * Объект, хранящий внешний вид графического интерфейса пользователя.
-     */
-    private FXMLLoader loader;
 
 
     /**
-     * Eng:
-     * Loads the view of GUI from path: "/view/sample.fxml",
-     * defines the behavior of the program, when you press the system buttons,
-     * and show the GUI for user.
-     *
      * Рус:
+     * <p>
      * Загружает графический интерфейс из следующего пути: "/view/sample.fxml",
      * определяет поведение программы при нажатии системных кнопок и показывает
      * графический интерфейс пользователю
+     * <p>
+     * Eng:
+     * <p>
+     * Loads the view of GUI from path: "/view/sample.fxml",
+     * defines the behavior of the program, when you press the system buttons,
+     * and show the GUI for user.
      */
     @Override
     public void start(final Stage primaryStage) throws Exception{
-        loader = new FXMLLoader(getClass().getResource("/view/sample.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/sample.fxml"));
         Parent root = loader.load();
         primaryStage.setTitle("Республиканский перинатальный центр");
         primaryStage.setScene(new Scene(root));
@@ -66,15 +61,16 @@ public class Main extends Application {
     }
 
     /**
-     * Eng:
-     * The start point of the program.
-     * Calls method @see start implicitly.
-     * @param args - program arguments.
-     *
      * Рус:
+     * <p>
      * Точка входа в программу.
-     * Вызывает метод @see start неявно
-     * @param args - аргументы программы.
+     * Вызывает метод {@link #start(Stage)} неявно по средством {@link #launch(Class, String...)} метода.
+     * <p>
+     * Eng:
+     * <p>
+     * The start point of the program.
+     * Calls method {@link #start(Stage)} with help of {@link #launch(String...)} method implicitly.
+     * @param args - program arguments.
      */
     public static void main(String[] args) {
         launch(args);

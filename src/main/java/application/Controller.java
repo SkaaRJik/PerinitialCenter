@@ -13,13 +13,25 @@ import stages.DoctorStage;
 import stages.ErrorStage;
 
 import java.sql.Date;
-import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.StringTokenizer;
+
+
+/**
+ * Рус:
+ * <p>
+ * Контроллер главного окна приложения.
+ * Отвечает за поведение программы, когда происходит какое-либо событие.
+ * <p>
+ * Eng:
+ * <p>
+ * Controller of application's main window.
+ * Responsible for the behavior of the program when an event occurs.
+ */
 
 public class Controller {
     PatientEntity currentPatient = null;
@@ -119,8 +131,20 @@ public class Controller {
     @FXML
     private Button buttonSave;
 
+
+    /**
+     * Рус:
+     * <p>
+     * Позволяет сменить имя текущего доктора.
+     * Вызывает {@link DoctorStage} дочернее окно.
+     * <p>
+     * Eng:
+     * <p>
+     * Allows change the name of current doctor.
+     * Call {@link DoctorStage} child window.
+     */
     @FXML
-    void changeDoctor(){
+    private void changeDoctor(){
         try {
             this.labelDoctor.setText(DoctorStage.display());
         } catch (Exception e) {
@@ -128,18 +152,27 @@ public class Controller {
         }
     }
 
-
+    /**
+     * Рус:
+     * Ищет пациетов в базе данных согласно содержащийся информации в поле
+     * {@link #textFieldSearch} и выводит результат на экран.
+     * <p>
+     * Eng:
+     * <p>
+     * Looks for patients in the database, according to the information contained
+     * in the {@link #textFieldSearch} field and displays the result on the screen.
+     */
     @FXML
-    void search() {
+    private void search() {
         if (textFieldSearch.getText().length() > 0) {
             if (textFieldSearch.getText().matches("\\d*")) {
-                        try {
+                try {
 
-                           Collection result = FactoryDAO.getInstance().getPatientDAO().getAllPatients(Integer.parseInt(textFieldSearch.getText()));
-                            fillTableView((List<PatientEntity>) result);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
+                   Collection result = FactoryDAO.getInstance().getPatientDAO().getAllPatients(Integer.parseInt(textFieldSearch.getText()));
+                    fillTableView((List<PatientEntity>) result);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
             else{
                 try {
@@ -150,7 +183,6 @@ public class Controller {
                     if(tmp.hasMoreTokens()) secondname = tmp.nextToken();
                     if(tmp.hasMoreTokens()) firstname = tmp.nextToken();
                     if(tmp.hasMoreTokens()) thirdname = tmp.nextToken();
-
                     Collection result =  FactoryDAO.getInstance().getPatientDAO().getAllPatients( secondname, firstname, thirdname);
                     fillTableView((List<PatientEntity>) result);
                 } catch (Exception e) {
@@ -163,6 +195,17 @@ public class Controller {
         }
     }
 
+    /**
+     * Рус:
+     * <p>
+     * Загрузка данных пациента, выбранного из таблицы {@link #tableView}.
+     * Помещает всю информацию о пациенте в соответствующие поля графического интерфейса.
+     * <p>
+     * Eng:
+     * <p>
+     * Loading of patient's data, chosen from the table {@link #tableView}.
+     * Initializes fields of GUI with field of the {@link PatientEntity} object.
+     */
     @FXML
     private void getSelectedPatient(){
         try {
@@ -220,6 +263,18 @@ public class Controller {
         }
     }
 
+    /**
+     * Рус:
+     * <p>
+     * Создает объект класса {@link PatientEntity} и заполняет поля объекта информацией, взятой
+     * из полей графического интерфейса.
+     * <p>
+     * Eng:
+     * <p>
+     * Crates the new object of {@link PatientEntity} class and sets its fields with
+     * information taken from fields of GUI.
+     * @return new {@link PatientEntity} object
+     */
     private PatientEntity createPatientFromFields() {
         PatientEntity patient = null;
         if (isAllFieldsCorrect()) {
@@ -271,7 +326,17 @@ public class Controller {
         return patient;
     }
 
-
+    /**
+     * Рус:
+     * <p>
+     * Создает новый объект класса {@link PatientEntity} при помощи метода {@link #createPatientFromFields()}
+     * и отправляет его в базу данных
+     * <p>
+     * Eng:
+     * <p>
+     * Crates the new object of {@link PatientEntity} class with help of {@link #createPatientFromFields()}
+     * and save it in the database
+     */
     @FXML
     private void savePatient(){
         PatientEntity patient = this.createPatientFromFields();
@@ -302,7 +367,16 @@ public class Controller {
     }
 
 
-
+    /**
+     * Рус:
+     * <p>
+     * Валидация полей
+     * <p>
+     * Eng:
+     * <p>
+     * Fields validation
+     * @return result of fields' checking
+     */
     private boolean isAllFieldsCorrect(){
         if(textFieldNumber.getText().matches("\\w")){
             ErrorStage.display("Поле 'Номер' должно содержать только цифры!");
@@ -312,8 +386,18 @@ public class Controller {
         fullname.countTokens();
         return true;
     }
+
+    /**
+     * Рус:
+     * <p>
+     * Подготавливает логику программы и графический интерфейс к вводу нвого пользователя
+     * <p>
+     * Eng:
+     * <p>
+     * Prepares logic of program and GUI for the new patient
+     */
     @FXML
-    private void createNewPacient(){
+    private void createNewPatient(){
         try {
             if(textFieldNumber.getText().length()>0) {
                 if (ConfirmStage.display("Новая пициентка", "Вы уверенны?\nВсе поля будут очищенны!")) {
@@ -332,12 +416,32 @@ public class Controller {
         }
     }
 
+    /**
+     * Рус:
+     * <p>
+     * Сеттер текущего доктора.
+     * <p>
+     * Eng:
+     * <p>
+     * Setter of current doctor
+     * @param doctor the name of the working doctor
+     */
     public void setDoctor(String doctor){
         this.labelDoctor.setText(doctor);
     }
 
-    private synchronized void fillTableView(List <PatientEntity> patientsList){
 
+    /**
+     * Рус:
+     * <p>
+     * Заполняет {@link #tableView} списком объектов класса {@link PatientEntity};
+     * <p>
+     * Eng:
+     * <p>
+     * Fills {@link #tableView} with list of {@link PatientEntity} objects.
+     * @param patientsList a list of patients.
+     */
+    private synchronized void fillTableView(List <PatientEntity> patientsList){
         Thread threadConnectingToDB = new Thread(() -> {
             try {
                 List<PatientEntity> patients = patientsList;
@@ -363,6 +467,23 @@ public class Controller {
         threadConnectingToDB.interrupt();
     }
 
+    /**
+     * Рус:
+     * <p>
+     * Настраивает {@link #tableView}:
+     * <ul>
+     *     <li>Устанавливает наименование колонок;</li>
+     *     <li>Переводит дату под русский формат дд-мм-гггг.</li>
+     * </ul>
+     * <p>
+     * Eng:
+     * <p>
+     * Configurate {@link #tableView}:
+     * <ul>
+     *     <li>Sets up the names of the columns;</li>
+     *     <li>Sets up russian format of date dd-mm-yyyy.</li>
+     * </ul>
+     */
 
     private void configureTableView(){
         columnID.setCellValueFactory(new PropertyValueFactory<PatientEntity, Integer>("id"));
@@ -373,16 +494,9 @@ public class Controller {
                 @Override
                 protected void updateItem(Date item, boolean empty) {
                     super.updateItem(item, empty);
-                    if(empty) {
-                        setText(null);
-                    }
-                    else {
-                        this.setText(format.format(item));
-
-                    }
+                    setText(empty ? null : format.format(item));
                 }
             };
-
             return cell;
         });
         columnDate.setCellValueFactory(new PropertyValueFactory<PatientEntity, Date>("dateDoc"));
@@ -392,8 +506,18 @@ public class Controller {
 
     }
 
+    /**
+     * Рус:
+     * <p>
+     * Отправляет информацию о выбранном пациенте на печать.
+     * <p>
+     * Eng:
+     * <p>
+     * Sends information about the selected patient to the printer.
+     */
+
     @FXML
-    void sendOnPrinter(){
+    void sendToPrinter(){
         if(this.currentPatient != null) {
             new PrinterPage().print(this.currentPatient);
         } else {
@@ -401,6 +525,17 @@ public class Controller {
         }
     }
 
+    /**
+     * Рус:
+     * <p>
+     * Настраивает компоненты программы и графического интерфейса пользователя.
+     * Вызывается единожды из класса {@link Main}
+     * <p>
+     * Eng:
+     * <p>
+     * Configures components of the program and GUI.
+     * Called once by {@link Main} class
+     */
 
     public void loadComponents(){
         this.fillChoiceBoxes();
@@ -411,6 +546,16 @@ public class Controller {
         this.configureTableView();
         this.fillTableView(null);
     }
+
+    /**
+     * Рус:
+     * <p>
+     * Наполняет поля выбора содержимым.
+     * <p>
+     * Eng:
+     * <p>
+     * Initializes ChoiseBoxes' fields with specified values.
+     */
     private void fillChoiceBoxes(){
         choiceBoxAnamnes.getItems().addAll("Первородящая", "Повторнородящая"," ");
         choiceBoxPosition.getItems().addAll("Правильное","Смещена вправо","Смещена влево");
@@ -428,6 +573,15 @@ public class Controller {
         choiceBoxAlien.getItems().addAll("не выявлено", "выявлено");
     }
 
+    /**
+     * Рус:
+     * <p>
+     * Меняет текущие значения полей на занчения по умолчанию.
+     * <p>
+     * Eng:
+     * <p>
+     * Replace the current values with the default values.
+     */
     private void cleanFields(){
         choiceBoxAnamnes.getSelectionModel().selectLast();
         choiceBoxPosition.getSelectionModel().selectFirst();
@@ -468,6 +622,15 @@ public class Controller {
         buttonSave.setText("Сохранить");
     }
 
+    /**
+     * Рус:
+     * <p>
+     * Меняет логику программы для работы с послеродовым пациентом.
+     * <p>
+     * Eng:
+     * <p>
+     * Changes the logic of the program to work with a postpartum patient.
+     */
     @FXML
     void setBirthPeriod(){
         radioOperation.setSelected(false);
@@ -476,6 +639,16 @@ public class Controller {
         accordionOperation.getPanes().get(0).setExpanded(false);
         accordionOperation.setVisible(false);
     }
+
+    /**
+     * Рус:
+     * <p>
+     * Меняет логику программы для работы с пациентом после операции.
+     * <p>
+     * Eng:
+     * <p>
+     * Changes the logic of the program to work with a operated patient.
+     */
     @FXML
     void setOperationPeriod(){
         radioOperation.setSelected(true);
