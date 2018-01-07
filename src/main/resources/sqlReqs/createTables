@@ -1,0 +1,50 @@
+
+CREATE TABLE Operation
+(
+	ID_PACIENT           INTEGER NOT NULL,
+	Joint                TINYTEXT NOT NULL,
+	Hematom              TINYTEXT NOT NULL,
+	Veins                TINYTEXT NOT NULL,
+	Liquids              TINYTEXT NOT NULL,
+	Alien                TINYTEXT NOT NULL
+);
+
+
+
+ALTER TABLE Operation
+ADD PRIMARY KEY (ID_PACIENT);
+
+
+
+CREATE TABLE Pacient
+(
+	ID                   INTEGER NOT NULL,
+	Date_doc             DATE NOT NULL,
+	Secondname           TINYTEXT NOT NULL,
+	Age                  INTEGER NOT NULL,
+	Mass                 INTEGER NULL,
+	Date_parturion       DATE NOT NULL,
+	Firstname            TINYTEXT NOT NULL,
+	Thirdname            TINYTEXT NOT NULL,
+	Anamnes              VARCHAR(20) NULL,
+	Lenght               INTEGER NOT NULL,
+	Front_back           INTEGER NOT NULL,
+	Transverse           INTEGER NOT NULL,
+	State                VARCHAR(20) NOT NULL,
+	Contour              VARCHAR(20) NOT NULL,
+	Echo                 TINYTEXT NOT NULL,
+	Cavity               TINYTEXT NOT NULL,
+	Operation            INTEGER NULL,
+	Result               TINYTEXT NOT NULL,
+	Doctor               TINYTEXT NOT NULL
+);
+
+
+
+ALTER TABLE Pacient
+ADD PRIMARY KEY (ID);
+
+
+
+ALTER TABLE Pacient
+ADD FOREIGN KEY R_12 (Operation) REFERENCES Operation (ID_PACIENT);

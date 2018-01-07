@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="664.0" prefWidth="472.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PrinterController">
+   <children>
+      <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="135.0" prefWidth="472.0">
+         <top>
+            <Label text="ГАУЗ РПЦ" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </top>
+         <left>
+            <HBox prefHeight="105.0" prefWidth="236.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label fx:id="labelNumber" text="№  ">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="10.0" right="3.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Label fx:id="labelDate" text="Дата ">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="15.0" right="3.0" />
+                     </HBox.margin>
+                  </Label>
+               </children>
+            </HBox>
+         </left>
+         <right>
+            <VBox>
+               <children>
+                  <Label fx:id="labelResearch" prefHeight="93.0" prefWidth="229.0" text="Ультразвуковое исследование органов малого таза " textAlignment="CENTER" wrapText="true">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </right>
+      </BorderPane>
+      <VBox prefHeight="393.0" prefWidth="472.0">
+         <children>
+            <BorderPane prefHeight="43.0" prefWidth="472.0">
+               <left>
+                  <Label fx:id="labelName" text="Ф. И. О. " textAlignment="JUSTIFY" wrapText="true" BorderPane.alignment="CENTER">
+                     <BorderPane.margin>
+                        <Insets left="10.0" />
+                     </BorderPane.margin>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+               </left>
+               <right>
+                  <Label fx:id="labelAge" text="Возраст " textAlignment="RIGHT" wrapText="true" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                     <BorderPane.margin>
+                        <Insets right="10.0" />
+                     </BorderPane.margin>
+                  </Label>
+               </right>
+            </BorderPane>
+            <Label fx:id="labelAnamnes" text="Анамнез " textAlignment="JUSTIFY" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <Label fx:id="labelDateBirth" text="Дата " textAlignment="JUSTIFY" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <Label fx:id="labelMass" text="Масса плода " textAlignment="JUSTIFY" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <Label text="Матка " textAlignment="JUSTIFY" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <Label fx:id="labelPos" text="Положение: " textAlignment="JUSTIFY" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <VBox>
+               <children>
+                  <HBox>
+                     <children>
+                        <Label text="Размеры:" textAlignment="JUSTIFY" wrapText="true">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="5.0" top="5.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="labelLenght" text="длина " textAlignment="JUSTIFY" wrapText="true">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="5.0" top="5.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="labelFrontBack" text="передне-задний " textAlignment="JUSTIFY" wrapText="true">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="5.0" top="5.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox>
+                     <children>
+                        <Label fx:id="labelCross" text="поперечный " textAlignment="JUSTIFY" wrapText="true">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="5.0" top="5.0" />
+                           </padding>
+                        </Label>
+                        <Label fx:id="labelState" text="/ " textAlignment="JUSTIFY" wrapText="true">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <padding>
+                              <Insets left="10.0" right="5.0" top="5.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Label fx:id="labelContour" text="Контуры: " textAlignment="JUSTIFY" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <Label fx:id="labelMiometrics" text="Миоиетрии: " textAlignment="JUSTIFY" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <Label fx:id="labelEcho" text="М эхо " textAlignment="JUSTIFY" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <Label fx:id="labelCavity" text="Полость матки: " textAlignment="JUSTIFY" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <Label fx:id="labelContains" layoutX="10.0" layoutY="205.0" text="Содержимое: " textAlignment="JUSTIFY" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <VBox fx:id="operationBox">
+               <children>
+                  <Label fx:id="labelStitches" text="Швы на матке: " textAlignment="JUSTIFY" wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="10.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="labelHematom" text="Гематома: " textAlignment="JUSTIFY" wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="10.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="labelVeins" text="Вены, сосуды матки: " textAlignment="JUSTIFY" wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="10.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="labelFluid" text="Свободная жидкость: " textAlignment="JUSTIFY" wrapText="true">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="10.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+                  <Label fx:id="labelAlien" text="Инородное тело: ">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="5.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets left="10.0" right="5.0" top="5.0" />
+                     </VBox.margin>
+                  </Label>
+               </children>
+            </VBox>
+            <Label fx:id="labelConclusion" text="Заключение " textAlignment="JUSTIFY" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <padding>
+                  <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+               </padding>
+            </Label>
+            <BorderPane prefHeight="51.0" prefWidth="472.0">
+               <right>
+                  <Label fx:id="labelDoctor" text="Врач " textAlignment="JUSTIFY" wrapText="true" BorderPane.alignment="CENTER">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Label>
+               </right>
+            </BorderPane>
+         </children>
+      </VBox>
+   </children>
+</VBox>
