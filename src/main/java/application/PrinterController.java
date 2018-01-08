@@ -9,7 +9,13 @@ import patient.PatientEntity;
 import java.text.SimpleDateFormat;
 
 /**
- * Created by SkaaRJ on 20.11.2017.
+ * Рус:
+ * <p>
+ * Контроллер {@link PrinterPage}, ответственный за заполнение текстовых полей для печати
+ * <p>
+ * Eng:
+ * <p>
+ * Controller of {@link PrinterPage}, responsible to fill text fields to be printed
  */
 public class PrinterController {
     @FXML
@@ -67,6 +73,16 @@ public class PrinterController {
     @FXML
     VBox operationBox;
 
+    /**
+     * Рус:
+     * <p>
+     * Устанавливает значения текстовых полей, значениями атрибутов класса {@link PatientEntity}.
+     * <p>
+     * Eng:
+     * <p>
+     * Sets up the values of text fields to class' {@link PatientEntity} atributes .
+     * @param patient
+     */
     public void setPatient(PatientEntity patient) {
         SimpleDateFormat newFormat = new SimpleDateFormat("dd.MM.yyyy");
         if(patient.getOperationByOperation() !=null){
@@ -74,8 +90,6 @@ public class PrinterController {
 
             labelDateBirth.setText(labelDateBirth.getText() + "операции кесарева сечения: "
                     + newFormat.format(patient.getDateParturion()));
-
-
 
             labelStitches.setText(labelStitches.getText() + " " + patient.getOperationByOperation().getStitches()
                    + " " + patient.getOperationByOperation().getStitchesAdd());
