@@ -49,8 +49,7 @@ public class Main extends Application {
 
             public void handle(WindowEvent event) {
                 primaryStage.close();
-                if(HibernateUtil.getSessionFactory()!=null)
-                HibernateUtil.getSessionFactory().close();
+                HibernateUtil.closeSession();
                 System.exit(0);
             }
         });
