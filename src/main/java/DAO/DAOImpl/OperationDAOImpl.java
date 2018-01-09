@@ -7,12 +7,30 @@ import patient.OperationEntity;
 import util.HibernateUtil;
 
 /**
- * Created by SkaaRJ on 02.11.2017.
+ * Рус:
+ * <p>
+ * Реализация интерфейса {@link OperationDAO}
+ * <p>
+ * Eng:
+ * <p>
+ * Implementation of {@link OperationDAO}
  */
 public class OperationDAOImpl implements OperationDAO {
 
     private static final Logger LOGGER = Logger.getLogger(OperationDAOImpl.class.getSimpleName());
 
+    /**
+     * Рус:
+     * <p>
+     * Возвращает запись о пациенте из базы данных.
+     * <p>
+     * Eng:
+     * <p>
+     * Returns information about patient from the database.
+     * @param id
+     * @return {@link OperationEntity}
+     * @throws Exception SQLException
+     */
     public OperationEntity getOperation(int id) throws Exception {
         Session session = null;
         OperationEntity operationEntity = null;
@@ -32,6 +50,17 @@ public class OperationDAOImpl implements OperationDAO {
         return operationEntity;
     }
 
+    /**
+     * Рус:
+     * <p>
+     * Добавляет запись о хирургическом вмешательстве в базу данных.
+     * <p>
+     * Eng:
+     * <p>
+     * Add record about operation into the database.
+     * @param operation
+     * @throws Exception SQLException
+     */
     public void addOperation(OperationEntity operation) throws Exception {
 
         Session session = null;
@@ -54,6 +83,17 @@ public class OperationDAOImpl implements OperationDAO {
 
     }
 
+    /**
+     * Рус:
+     * <p>
+     * Обновляет запись о хирургическом вмешательстве в базе данных.
+     * <p>
+     * Eng:
+     * <p>
+     * Updates record about operation into the database.
+     * @param operation
+     * @throws Exception SQLException
+     */
     public void updateOperation(OperationEntity operation) throws Exception {
         Session session = null;
         try{
@@ -72,6 +112,17 @@ public class OperationDAOImpl implements OperationDAO {
         }
     }
 
+    /**
+     * Рус:
+     * <p>
+     * Удаляет запись о хирургическом вмешательстве в базе данных.
+     * <p>
+     * Eng:
+     * <p>
+     * Deletes record about operation into the database.
+     * @param operation
+     * @throws Exception SQLException
+     */
     public void deleteOperation(OperationEntity operation) throws Exception {
         Session session = null;
 
