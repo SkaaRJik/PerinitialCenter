@@ -3,7 +3,13 @@ package patient;
 import javax.persistence.*;
 
 /**
- * Created by SkaaRJ on 12.11.2017.
+ * Рус:
+ * <p>
+ * Отображение таблицы 'operation' реляционной базы данных в виде объекта в программе.
+ * <p>
+ * Eng:
+ * <p>
+ * Object-relational mapping between database's table 'operation' and this program.
  */
 @Entity
 @Table(name = "operation", schema = "perinitial")

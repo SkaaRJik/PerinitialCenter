@@ -4,7 +4,13 @@ import javax.persistence.*;
 import java.sql.Date;
 
 /**
- * Created by SkaaRJ on 12.11.2017.
+ * Рус:
+ * <p>
+ * Отображение таблицы 'patient' реляционной базы данных в виде объекта в программе.
+ * <p>
+ * Eng:
+ * <p>
+ * Object-relational mapping between database's table 'patient' and this program.
  */
 @Entity
 @Table(name = "patient", schema = "perinitial")

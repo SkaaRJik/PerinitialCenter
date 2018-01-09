@@ -17,12 +17,30 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * Created by SkaaRJ on 02.11.2017.
+ * Рус:
+ * <p>
+ * Реализация интерфейса {@link PatientDAO}
+ * <p>
+ * Eng:
+ * <p>
+ * Implementation of {@link PatientDAO}
  */
 public class PatientDAOImpl implements PatientDAO {
 
     private static final Logger LOGGER = Logger.getLogger(PatientDAOImpl.class.getSimpleName());
 
+
+    /**
+     * Рус:
+     * <p>
+     * Получает список всех пациентов, хранящихся в базе данных
+     * <p>
+     * Eng:
+     * <p>
+     * Gets the list of all patients, which are stored in the database
+     * @return {@link List} of {@link PatientEntity}
+     * @throws Exception SQLException
+     */
     public Collection getAllPatients() throws Exception {
 
         Session session = null;
@@ -41,6 +59,18 @@ public class PatientDAOImpl implements PatientDAO {
         return patients;
     }
 
+    /**
+     * Рус:
+     * <p>
+     * Поиск пациентов со схожим id
+     * <p>
+     * Eng:
+     * <p>
+     * Searches patients with similar id
+     * @param id identifical number of patient
+     * @return {@link List} of {@link PatientEntity}
+     * @throws Exception SQLException
+     */
     public Collection getAllPatients(int id) throws Exception {
 
         Session session = null;
@@ -64,6 +94,20 @@ public class PatientDAOImpl implements PatientDAO {
         return patients;
     }
 
+    /**
+     * Рус:
+     * <p>
+     * Поиск пациента по фамилии, имени, отчеству
+     * <p>
+     * Eng:
+     * <p>
+     * Searches patients by full name
+     * @param secondname surname
+     * @param firstname name
+     * @param thirdname patronymic
+     * @return {@link List} of {@link PatientEntity}
+     * @throws Exception SQLException
+     */
     public Collection getAllPatients(String secondname, String firstname, String thirdname) throws Exception {
 
         Session session = null;
@@ -106,6 +150,18 @@ public class PatientDAOImpl implements PatientDAO {
         return patients;
     }
 
+    /**
+     * Рус:
+     * <p>
+     * Поиск пациента по id
+     * <p>
+     * Eng:
+     * <p>
+     * Searches patient by id
+     * @param id identifical number of patient
+     * @return {@link PatientEntity}
+     * @throws Exception SQL Exception
+     */
     public PatientEntity getPatient(int id) throws Exception {
 
         Session session = null;
@@ -126,6 +182,17 @@ public class PatientDAOImpl implements PatientDAO {
         return patientEntity;
     }
 
+    /**
+     * Рус:
+     * <p>
+     * Добавляет пациента в базу данных.
+     * <p>
+     * Eng:
+     * <p>
+     * Add patient into the database.
+     * @param patient
+     * @throws Exception SQL Exception
+     */
     public void addPatient(PatientEntity patient) throws Exception {
 
         Session session = null;
@@ -145,6 +212,17 @@ public class PatientDAOImpl implements PatientDAO {
         }
     }
 
+    /**
+     * Рус:
+     * <p>
+     * Измененяет данные пациента в базе данных
+     * <p>
+     * Eng:
+     * <p>
+     * Updates patient's information
+     * @param patient updated patient
+     * @throws Exception SQLException
+     */
     public void updatePatient(PatientEntity patient) throws Exception {
 
         Session session = null;
@@ -165,6 +243,17 @@ public class PatientDAOImpl implements PatientDAO {
         }
     }
 
+    /**
+     * Рус:
+     * <p>
+     * Удаление пациента из базы данных
+     * <p>
+     * Eng:
+     * <p>
+     * Delete the pacient from the database
+     * @param patient - patient should be deleted
+     * @throws Exception SQL Exception SQLException
+     */
     public void deletePatient(PatientEntity patient) throws Exception {
 
         Session session = null;
