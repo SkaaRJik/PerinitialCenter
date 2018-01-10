@@ -12,12 +12,31 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 /**
- * Created by SkaaRJ on 05.11.2017.
+ * Рус:
+ * <p>
+ * Окно подтверждения, дает варианты выбора 'Да' или 'Отмена'.
+ * <p>
+ * Eng:
+ * <p>
+ * Confirmation window allows user to select 'Yes' or 'Cancel'
  */
 public class ConfirmStage  {
 
     static boolean answer;
 
+    /**
+     * Рус:
+     * <p>
+     * Показывает окно подтверждения. Возвращает 1, если выбран вариант 'Да', 0 - если 'Отмена'
+     * <p>
+     * Eng:
+     * <p>
+     * Display confirmation window. Returns 1 - 'Yes', 0 - 'cancel'
+     * @param title header of the window (not used in that program)
+     * @param message message to show
+     * @return 1 - 'Yes', 0 - 'cancel'
+     * @throws Exception
+     */
     public static boolean display(String title, String message) throws Exception {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);

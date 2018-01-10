@@ -13,11 +13,28 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 /**
- * Created by SkaaRJ on 04.11.2017.
+ * Рус:
+ * <p>
+ * Окно для изменения ФИО текущего доктора.
+ * <p>
+ * Eng:
+ * <p>
+ * Window changes full name of current doctor.
  */
 public class DoctorStage  {
     static String doctorName;
 
+    /**
+     * Рус:
+     * <p>
+     * Показывает окно редактирования ФИО доктора. Не позволяет закрыть.
+     * <p>
+     * Eng:
+     * <p>
+     * Displays window to change doctor's full name. Closing is not allowed
+     * @return new full name
+     * @throws Exception
+     */
     public static String display() throws Exception {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);

@@ -13,11 +13,26 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 /**
- * Created by SkaaRJ on 02.11.2017.
+ * Рус:
+ * <p>
+ * Окно для показа ошибки.
+ * <p>
+ * Eng:
+ * <p>
+ * Error Window.
  */
 public class ErrorStage {
 
-
+    /**
+     * Рус:
+     * <p>
+     * Выводит окно с текстом ошибки. Имеет единственную кнопку ОК.
+     * <p>
+     * Eng:
+     * <p>
+     * Displays window with error message. There is only 'OK' button
+     * @param message error message
+     */
     public static void display(String message) {
         Stage window = new Stage();
         window.initModality(Modality.APPLICATION_MODAL);
