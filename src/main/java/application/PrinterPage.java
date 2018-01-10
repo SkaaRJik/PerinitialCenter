@@ -55,7 +55,7 @@ public class PrinterPage {
             printerController.setPatient(patient);
 
             // Display the Stage
-            stage.show();
+            //stage.show();
             printSetup(root, stage);
         } catch (IOException e) {
             e.printStackTrace();
