@@ -1,4 +1,4 @@
-package stages;
+package model.window;
 
 /**
  * Фабрика модальных окон. Сомневаюсь, нужна ли она вообще.

@@ -1,6 +1,6 @@
-package DAO;
+package model.DAO;
 
-import patient.OperationEntity;
+import model.patient.OperationEntity;
 
 /**
  * Рус:

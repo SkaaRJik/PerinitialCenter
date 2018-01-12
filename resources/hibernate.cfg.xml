@@ -6,8 +6,8 @@
     <session-factory>
         <property name="connection.url">jdbc:mysql://localhost:3306/perinitial</property>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-        <mapping class="patient.OperationEntity"/>
-        <mapping class="patient.PatientEntity"/>
+        <mapping class="model.patient.OperationEntity"/>
+        <mapping class="model.patient.PatientEntity"/>
 
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hbm2ddl.auto">update</property> -->

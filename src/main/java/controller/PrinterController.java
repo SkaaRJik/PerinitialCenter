@@ -1,21 +1,22 @@
-package application;
+package controller;
 
+import model.util.Printer;
 import javafx.fxml.FXML;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
-import patient.PatientEntity;
+import model.patient.PatientEntity;
 
 import java.text.SimpleDateFormat;
 
 /**
  * Рус:
  * <p>
- * Контроллер {@link PrinterPage}, ответственный за заполнение текстовых полей для печати
+ * Контроллер {@link Printer}, ответственный за заполнение текстовых полей для печати
  * <p>
  * Eng:
  * <p>
- * Controller of {@link PrinterPage}, responsible to fill text fields to be printed
+ * Controller of {@link Printer}, responsible to fill text fields to be printed
  */
 public class PrinterController {
     @FXML

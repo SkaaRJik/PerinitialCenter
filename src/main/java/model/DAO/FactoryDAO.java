@@ -1,7 +1,7 @@
-package DAO;
+package model.DAO;
 
-import DAO.DAOImpl.OperationDAOImpl;
-import DAO.DAOImpl.PatientDAOImpl;
+import model.DAO.DAOImpl.OperationDAOImpl;
+import model.DAO.DAOImpl.PatientDAOImpl;
 
 /**
  * Рус:

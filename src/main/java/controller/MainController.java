@@ -1,16 +1,19 @@
-package application;
+package controller;
 
-import DAO.FactoryDAO;
-import DAO.PatientDAO;
+import model.DAO.FactoryDAO;
+import model.DAO.PatientDAO;
+import model.window.Main;
+import model.util.Validator;
+import model.util.Printer;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import patient.OperationEntity;
-import patient.PatientEntity;
-import stages.ConfirmStage;
-import stages.DoctorStage;
-import stages.ErrorStage;
+import model.patient.OperationEntity;
+import model.patient.PatientEntity;
+import model.window.ConfirmStage;
+import model.window.DoctorStage;
+import model.window.ErrorStage;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
@@ -33,7 +36,7 @@ import java.util.StringTokenizer;
  * Responsible for the behavior of the program when an event occurs.
  */
 
-public class Controller {
+public class MainController {
     PatientEntity currentPatient = null;
     boolean isLoadedFromBase = false;
     @FXML
@@ -279,7 +282,6 @@ public class Controller {
         PatientEntity patient = null;
         if (isAllFieldsCorrect()) {
             patient = new PatientEntity();
-            OperationEntity operation = new OperationEntity();
             patient.setId(Integer.valueOf(textFieldNumber.getText()));
             patient.setDateDoc(Date.valueOf(datePickerDocument.getValue()));
             StringTokenizer fullname = new StringTokenizer(textFieldFullname.getText());
@@ -309,7 +311,7 @@ public class Controller {
             patient.setConclusionAdd(textFieldConclusion.getText());
             patient.setOperationByOperation(null);
             if (radioOperation.isSelected()) {
-
+                OperationEntity operation = new OperationEntity();
                 operation.setIdPatient(Integer.parseInt(textFieldNumber.getText()));
                 operation.setStitches(choiceBoxStitches.getValue());
                 operation.setStitchesAdd(textFieldStitches.getText());
@@ -375,15 +377,98 @@ public class Controller {
      * Eng:
      * <p>
      * Fields validation
-     * @return result of fields' checking
+     * @return true - if all fields are correct, otherwise false
      */
     private boolean isAllFieldsCorrect(){
-        if(textFieldNumber.getText().matches("\\w")){
-            ErrorStage.display("Поле 'Номер' должно содержать только цифры!");
-         return false;
+        Validator validator = new Validator();
+
+        if(textFieldNumber.getText().length()==0) {
+            ErrorStage.display("Заполните поле 'Номер'!");
+            return false;
         }
-        StringTokenizer fullname = new StringTokenizer(textFieldFullname.getText());
-        fullname.countTokens();
+        else {
+            if(!validator.isOnlyNumbers(textFieldNumber.getText())){
+                ErrorStage.display("Поле 'Номер' должно содержать только цифры!");
+                return false;
+            }
+        }
+
+        if(datePickerDocument.getValue() == null) {
+            ErrorStage.display("Заполните поле 'Дата документа'!");
+            return false;
+        }
+
+        if(textFieldFullname.getText().length() == 0){
+            ErrorStage.display("Заполните поле 'Ф.И.О.'!");
+            return false;
+        } else {
+            if(!validator.checkFullName(textFieldFullname.getText())){
+                ErrorStage.display("Нужно писать полное имя, без сокращений.\n" +
+                        "Если двойная фамилия, писать через тире ");
+                return false;
+            }
+        }
+
+        if(datePickerBirth.getValue() == null){
+            ErrorStage.display("Заполните поле " + labelDateBirthOrOperation.getText() + "!");
+            return false;
+        }
+
+        if(textFieldAge.getText().length()==0) {
+            ErrorStage.display("Заполните поле 'Возраст'!");
+            return false;
+        }
+        else {
+            if(!validator.isOnlyNumbers(textFieldAge.getText())){
+                ErrorStage.display("Поле 'Возраст' должно содержать только цифры!");
+                return false;
+            }
+        }
+
+        if(textFieldMass.getText().length()==0) {
+            ErrorStage.display("Заполните поле 'Масса плода'!");
+            return false;
+        }
+        else {
+            if(!validator.isOnlyNumbers(textFieldMass.getText())){
+                ErrorStage.display("Поле 'Масса плода' должно содержать только цифры!");
+                return false;
+            }
+        }
+
+        if(textFieldLenght.getText().length()==0) {
+            ErrorStage.display("Заполните поле 'Длина'!");
+            return false;
+        }
+        else {
+            if(!validator.isOnlyNumbers(textFieldLenght.getText())){
+                ErrorStage.display("Поле 'Длина' должно содержать только цифры!");
+                return false;
+            }
+        }
+
+        if(textFieldFrontBack.getText().length()==0) {
+            ErrorStage.display("Заполните поле 'Передне-задний'!");
+            return false;
+        }
+        else {
+            if(!validator.isOnlyNumbers(textFieldFrontBack.getText())){
+                ErrorStage.display("Поле 'Передне-задний' должно содержать только цифры!");
+                return false;
+            }
+        }
+
+        if(textFieldCross.getText().length()==0) {
+            ErrorStage.display("Заполните поле 'Поперечный'!");
+            return false;
+        }
+        else {
+            if(!validator.isOnlyNumbers(textFieldCross.getText())){
+                ErrorStage.display("Поле 'Поперечный' должно содержать только цифры!");
+                return false;
+            }
+        }
+
         return true;
     }
 
@@ -519,7 +604,7 @@ public class Controller {
     @FXML
     void sendToPrinter(){
         if(this.currentPatient != null) {
-            new PrinterPage().print(this.currentPatient);
+            new Printer().print(this.currentPatient);
         } else {
             ErrorStage.display("Сначала сохраните пациентку,\nзатем повторно нажмите печать");
         }

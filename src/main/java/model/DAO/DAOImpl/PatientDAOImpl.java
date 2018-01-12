@@ -1,16 +1,13 @@
-package DAO.DAOImpl;
+package model.DAO.DAOImpl;
 
-import DAO.PatientDAO;
+import model.DAO.PatientDAO;
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
-import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
-import stages.ErrorStage;
-import javafx.stage.Stage;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
-import patient.PatientEntity;
-import util.HibernateUtil;
+import model.patient.PatientEntity;
+import model.util.HibernateUtil;
 
 import java.util.ArrayList;
 import java.util.Collection;

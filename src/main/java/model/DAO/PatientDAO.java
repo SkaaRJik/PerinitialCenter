@@ -1,6 +1,6 @@
-package DAO;
+package model.DAO;
 
-import patient.PatientEntity;
+import model.patient.PatientEntity;
 
 import java.util.Collection;
 

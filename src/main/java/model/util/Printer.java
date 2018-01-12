@@ -1,12 +1,13 @@
-package application;
+package model.util;
 
+import controller.PrinterController;
 import javafx.fxml.FXMLLoader;
 import javafx.print.PrinterJob;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import patient.PatientEntity;
+import model.patient.PatientEntity;
 
 import java.io.IOException;
 
@@ -20,7 +21,7 @@ import java.io.IOException;
  * Class for printing of patient's data
  */
 
-public class PrinterPage {
+public class Printer {
 
 
     /**

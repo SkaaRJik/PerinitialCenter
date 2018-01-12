@@ -1,10 +1,10 @@
-package DAO.DAOImpl;
+package model.DAO.DAOImpl;
 
-import DAO.OperationDAO;
+import model.DAO.OperationDAO;
 import org.apache.log4j.Logger;
 import org.hibernate.Session;
-import patient.OperationEntity;
-import util.HibernateUtil;
+import model.patient.OperationEntity;
+import model.util.HibernateUtil;
 
 /**
  * Рус:

@@ -1,10 +1,9 @@
-package util;
+package model.util;
 
-import javafx.stage.Stage;
 import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import stages.ErrorStage;
+import model.window.ErrorStage;
 
 /**
  * Рус:

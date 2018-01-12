@@ -1,5 +1,6 @@
-package application;
+package model.window;
 
+import controller.MainController;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -7,8 +8,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import stages.DoctorStage;
-import util.HibernateUtil;
+import model.window.DoctorStage;
+import model.util.HibernateUtil;
 
 /**
  * Рус:
@@ -53,7 +54,7 @@ public class Main extends Application {
                 System.exit(0);
             }
         });
-        Controller controller = loader.getController();
+        MainController controller = loader.getController();
         controller.loadComponents();
         controller.setDoctor(DoctorStage.display());
         primaryStage.show();

@@ -1,4 +1,4 @@
-package stages;
+package model.window;
 
 import javafx.geometry.Pos;
 import javafx.scene.Scene;

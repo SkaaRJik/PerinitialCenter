@@ -1,4 +1,4 @@
-package patient;
+package model.patient;
 
 import javax.persistence.*;
 
