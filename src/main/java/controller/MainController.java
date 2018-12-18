@@ -2,7 +2,7 @@ package controller;
 
 import model.DAO.FactoryDAO;
 import model.DAO.PatientDAO;
-import model.window.Main;
+
 import model.util.Validator;
 import model.util.Printer;
 import javafx.collections.FXCollections;
